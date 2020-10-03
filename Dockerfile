@@ -11,8 +11,11 @@ ENV UMASK=0000
 ENV DATA_PERM=770
 ENV UID=99
 ENV GID=100
+ENV USER="sabnzbd"
 
-RUN mkdir -p $DATA_DIR && \
+RUN mkdir $DATA_DIR && \
+	useradd -d $DATA_DIR -s /bin/bash $USER && \
+	chown -R $USER $DATA_DIR && \
 	ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
