@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ "$SABNZBD_REL" == "latest" ]; then
-    LAT_V="$(wget -qO- https://git.minenet.at/ich777/versions/raw/branch/master/SABnzbd | grep LATEST | cut -d '=' -f2)"
+    LAT_V="$(wget -qO- https://github.com/ich777/versions/raw/master/SABnzbd | grep LATEST | cut -d '=' -f2)"
 elif [ "$SABNZBD_REL" == "prerelease" ]; then
-    LAT_V="$(wget -qO- https://git.minenet.at/ich777/versions/raw/branch/master/SABnzbd | grep PRERELEASE | cut -d '=' -f2)"
+    LAT_V="$(wget -qO- https://github.com/ich777/versions/raw/master/SABnzbd | grep PRERELEASE | cut -d '=' -f2)"
 else
     echo "---Version manually set to: v$SABNZBD_REL---"
     LAT_V="$SABNZBD_REL"
