@@ -1,5 +1,4 @@
 #!/bin/bash
-sleep infinity
 if [ "$SABNZBD_REL" == "latest" ]; then
     LAT_V="$(wget -qO- https://git.minenet.at/ich777/versions/raw/branch/master/SABnzbd | grep LATEST | cut -d '=' -f2)"
 elif [ "$SABNZBD_REL" == "prerelease" ]; then
