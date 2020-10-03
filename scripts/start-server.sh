@@ -9,11 +9,14 @@ else
     echo "-------or 'prerelease', putting container into sleep mode-------"
     echo "----------------------------------------------------------------"
 fi
+
 if [ ! -f ${DATA_DIR}/SABnzbd/SABnzbd.py ]; then
     CUR_V=""
 else
     cd ${DATA_DIR}
     CUR_V="$(/usr/bin/python3 ${DATA_DIR}/SABnzbd/SABnzbd.py --version | grep SABnzbd.py- | cut -d '-' -f2-)"
+fi
+
 if [ -z $LAT_V ]; then
     if [ -z $CUR_V ]; then
         echo "---Can't get latest version of SABnzbd, putting container into sleep mode!---"
