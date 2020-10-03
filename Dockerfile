@@ -27,7 +27,7 @@ RUN mkdir $DATA_DIR && \
 
 ADD /scripts/ /opt/scripts/
 RUN chmod -R 770 /opt/scripts/ && \
-	chmod -R 770 /mnt
+	chmod -R 770 /mnt && \
 	chown -R $UID:$GID /mnt
 
 EXPOSE 8080 9090
