@@ -62,8 +62,7 @@ if [ ! -f ${DATA_DIR}/sabnzbd.ini ]; then
 download_dir = /mnt/incomplete
 complete_dir = /mnt/downloads
 host = 0.0.0.0
-auto_browser = 0
-url_base = /" > ${DATA_DIR}/sabnzbd.ini
+auto_browser = 0" > ${DATA_DIR}/sabnzbd.ini
 fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
