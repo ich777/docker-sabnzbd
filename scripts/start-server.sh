@@ -4,10 +4,8 @@ if [ "$SABNZBD_REL" == "latest" ]; then
 elif [ "$SABNZBD_REL" == "prerelease" ]; then
     LAT_V="$(wget -qO- https://git.minenet.at/ich777/versions/raw/branch/master/SABnzbd | grep PRERELEASE | cut -d '=' -f2)"
 else
-    echo "----------------------------------------------------------------"
-    echo "---Variable 'SABNZBD_REL' wrong, it has to be either 'latest'---"
-    echo "-------or 'prerelease', putting container into sleep mode-------"
-    echo "----------------------------------------------------------------"
+    echo "---Version manually set to: v$SABNZBD_REL---"
+    LAT_V="$SABNZBD_REL"
 fi
 
 if [ ! -f ${DATA_DIR}/SABnzbd/SABnzbd.py ]; then
