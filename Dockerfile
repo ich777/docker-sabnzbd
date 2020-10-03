@@ -5,7 +5,7 @@ LABEL maintainer="admin@minenet.at"
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel && \
 	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj configobj cherrypy portend chardet notify2 && \
-	apt-get -y remove python3-pip3 python3-setuptools python3-wheel && \
+	apt-get -y remove python3-pip python3-setuptools python3-wheel && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
 
