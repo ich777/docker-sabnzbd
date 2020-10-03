@@ -58,8 +58,12 @@ fi
 
 echo "---Preparing Server---"
 if [ ! -f ${DATA_DIR}/sabnzbd.ini ]; then
-    echo "download_dir = /mnt/incomplete
-complete_dir = /mnt/downloads" > ${DATA_DIR}/sabnzbd.ini
+    echo "__encoding__ = utf-8
+__version__ = 19
+[misc]
+download_dir = /mnt/incomplete
+complete_dir = /mnt/downloads
+host = 0.0.0.0" > ${DATA_DIR}/sabnzbd.ini
 fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
