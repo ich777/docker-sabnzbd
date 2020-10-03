@@ -2,8 +2,9 @@ FROM ich777/debian-baseimage
 
 LABEL maintainer="admin@minenet.at"
 
-RUN apt-get update && \
-	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel && \
+RUN sed -i "/deb http:\/\/deb.debian.org\/debian buster main/c\deb http:\/\/deb.debian.org\/debian buster main non-free" /etc/apt/sources.list && \
+	apt-get update && \
+	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip unrar par2 && \
 	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj configobj cherrypy portend chardet notify2 && \
 	apt-get -y remove python3-pip python3-setuptools python3-wheel && \
 	apt-get -y autoremove && \
