@@ -56,11 +56,12 @@ fi
 
 echo "---Preparing Server---"
 if [ ! -f ${DATA_DIR}/sabnzbd.ini ]; then
-    echo "[misc]
+    echo '[misc]
 download_dir = /mnt/incomplete
 complete_dir = /mnt/downloads
 host = 0.0.0.0
-auto_browser = 0" > ${DATA_DIR}/sabnzbd.ini
+url_base = ""
+auto_browser = 0' > ${DATA_DIR}/sabnzbd.ini
 fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
