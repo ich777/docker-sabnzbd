@@ -4,11 +4,20 @@ LABEL maintainer="admin@minenet.at"
 
 RUN sed -i "/deb http:\/\/deb.debian.org\/debian buster main/c\deb http:\/\/deb.debian.org\/debian buster main non-free" /etc/apt/sources.list && \
 	apt-get update && \
-	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip unrar par2 && \
+	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev && \
 	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj cherrypy portend chardet notify2 && \
 	apt-get -y remove python3-pip python3-setuptools python3-wheel && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
+
+RUN LAT_V_UNRAR="$(curl -s https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+	LAT_V_PAR2TBB="$(curl -s https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+	cd /tmp && \
+	wget -O unrar.tar.gz "https://github.com/ich777/unrar/releases/download/$LAT_V_UNRAR/rar-v$LAT_V_UNRAR.tar.gz" && \
+	wget -O par2tbb.tar.gz "https://github.com/ich777/par2tbb/releases/download/$LAT_V_PAR2TBB/par2-v$LAT_V_PAR2TBB.tar.gz" && \
+	tar -C / -xvf /tmp/unrar.tar.gz && \
+	tar -C / -xvf /tmp/par2tbb.tar.gz && \
+	rm /tmp/unrar.tar.gz /tmp/par2tbb.tar.gz
 
 ENV DATA_DIR="/sabnzbd"
 ENV SABNZBD_REL="latest"
