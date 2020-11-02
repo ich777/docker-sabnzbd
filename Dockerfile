@@ -10,8 +10,8 @@ RUN sed -i "/deb http:\/\/deb.debian.org\/debian buster main/c\deb http:\/\/deb.
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN LAT_V_UNRAR="$(curl -s https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
-	LAT_V_PAR2TBB="$(curl -s https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+	LAT_V_PAR2TBB="$(wget -qO- https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
 	cd /tmp && \
 	wget -O unrar.tar.gz "https://github.com/ich777/unrar/releases/download/$LAT_V_UNRAR/rar-v$LAT_V_UNRAR.tar.gz" && \
 	wget -O par2tbb.tar.gz "https://github.com/ich777/par2tbb/releases/download/$LAT_V_PAR2TBB/par2-v$LAT_V_PAR2TBB.tar.gz" && \
