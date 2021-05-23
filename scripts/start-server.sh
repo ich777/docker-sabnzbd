@@ -65,6 +65,16 @@ auto_browser = 0' > ${DATA_DIR}/sabnzbd.ini
 fi
 chmod -R ${DATA_PERM} ${DATA_DIR}
 
+echo "+-------------------------------------------------------------"
+echo "|"
+echo "| This container for ARM is deprecated and is no"
+echo "| longer actively maintained or further developed!"
+echo "|"
+echo "|  Container will start in 60 seconds!"
+echo "|"
+echo "+-------------------------------------------------------------"
+sleep 60
+
 echo "---Starting SABnzbd---"
 cd ${DATA_DIR}
 /usr/bin/python3 -OO ${DATA_DIR}/SABnzbd/SABnzbd.py -f ${DATA_DIR}/sabnzbd.ini ${START_PARAMS}
