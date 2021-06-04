@@ -2,22 +2,22 @@ FROM ich777/debian-baseimage
 
 LABEL maintainer="admin@minenet.at"
 
-#RUN sed -i "/deb http:\/\/deb.debian.org\/debian buster main/c\deb http:\/\/deb.debian.org\/debian buster main non-free" /#etc/apt/sources.list && \
-#	apt-get update && \
-#	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc build-essential libssl-dev libffi-dev python-dev && \
-#	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj cherrypy portend chardet notify2 && \
-#	apt-get -y remove python3-pip python3-setuptools python3-wheel rustc && \
-#	apt-get -y autoremove && \
-#	rm -rf /var/lib/apt/lists/*
+RUN sed -i "/deb http:\/\/deb.debian.org\/debian buster main/c\deb http:\/\/deb.debian.org\/debian buster main non-free" /etc/apt/sources.list && \
+	apt-get update && \
+	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc python-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev && \
+	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj cherrypy portend chardet notify2 && \
+	apt-get -y remove python3-pip python3-setuptools python3-wheel rustc python-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev && \
+	apt-get -y autoremove && \
+	rm -rf /var/lib/apt/lists/*
 
-#RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
-#	LAT_V_PAR2TBB="$(wget -qO- https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
-#	cd /tmp && \
-#	wget -O unrar.tar.gz "https://github.com/ich777/unrar/releases/download/$LAT_V_UNRAR/rar-v$LAT_V_UNRAR.tar.gz" && \
-#	wget -O par2tbb.tar.gz "https://github.com/ich777/par2tbb/releases/download/$LAT_V_PAR2TBB/par2-v$LAT_V_PAR2TBB.tar.gz" && \
-#	tar -C /usr/bin -xvf /tmp/unrar.tar.gz && \
-#	tar -C / -xvf /tmp/par2tbb.tar.gz && \
-#	rm /tmp/unrar.tar.gz /tmp/par2tbb.tar.gz
+RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+	LAT_V_PAR2TBB="$(wget -qO- https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
+	cd /tmp && \
+	wget -O unrar.tar.gz "https://github.com/ich777/unrar/releases/download/$LAT_V_UNRAR/rar-v$LAT_V_UNRAR.tar.gz" && \
+	wget -O par2tbb.tar.gz "https://github.com/ich777/par2tbb/releases/download/$LAT_V_PAR2TBB/par2-v$LAT_V_PAR2TBB.tar.gz" && \
+	tar -C /usr/bin -xvf /tmp/unrar.tar.gz && \
+	tar -C / -xvf /tmp/par2tbb.tar.gz && \
+	rm /tmp/unrar.tar.gz /tmp/par2tbb.tar.gz
 
 ENV DATA_DIR="/sabnzbd"
 ENV SABNZBD_REL="latest"
