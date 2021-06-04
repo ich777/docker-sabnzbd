@@ -2,6 +2,8 @@ FROM ich777/debian-baseimage
 
 LABEL maintainer="admin@minenet.at"
 
+ARG CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc && \
 	pip3 install sabyenc3 cheetah3 cryptography feedparser==5.2.1 configobj cherrypy portend chardet notify2 && \
