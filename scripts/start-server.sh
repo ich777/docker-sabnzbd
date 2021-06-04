@@ -24,9 +24,8 @@ if [ -z $LAT_V ]; then
     fi
 fi
 
-if [ -f ${DATA_DIR}/SABnzbd-v$LAT_V.tar.gz ]; then
-    rm ${DATA_DIR}/SABnzbd-v$LAT_V.tar.gz
-fi
+#Remove old or failed downloads
+rm -rf ${DATA_DIR}/SABnzbd-*
 
 echo "---Version Check---"
 if [ -z "$CUR_V" ]; then
