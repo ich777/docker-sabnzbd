@@ -10,7 +10,7 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/*
 
 #Patch Python3.9 to be compatible with SABnzbd
-RUN sed -i 's/base64.decodestring/base64.decodebytes/g' /usr/lib/python3/dist-packages/feedparser.py
+RUN sed -i 's/base64.decodestring/base64.decodebytes/g' /usr/local/lib/python3.9/dist-packages/feedparser.py
 
 RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/latest | grep tag_name | cut -d '"' -f4)" && \
 	LAT_V_PAR2TBB="$(wget -qO- https://api.github.com/repos/ich777/par2tbb/releases/latest | grep tag_name | cut -d '"' -f4)" && \
