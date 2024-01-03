@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source="https://github.com/ich777/docker-sabnzbd"
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev par2 && \
-	pip3 install sabctools==7.1.2 cheetah3 cryptography feedparser configobj cherrypy portend chardet notify2 puremagic guessit PySocks --break-system-packages && \
+	pip3 install sabctools==8.1.0 cheetah3 cryptography feedparser configobj cherrypy portend chardet notify2 puremagic guessit PySocks --break-system-packages && \
 	apt-get -y remove python3-pip python3-wheel rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
