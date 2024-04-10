@@ -22,6 +22,7 @@ RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/
 ENV DATA_DIR="/sabnzbd"
 ENV SABNZBD_REL="latest"
 ENV START_PARAMS=""
+ENV CONNECTED_CONTAINERS=""
 ENV UMASK=0000
 ENV DATA_PERM=770
 ENV UID=99
