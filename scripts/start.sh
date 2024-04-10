@@ -24,6 +24,10 @@ chown -R root:${GID} /opt/scripts
 chmod -R 750 /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
 
+if [ ! -z "${CONNECTED_CONTAINERS}" ]; then
+  su ${USER} -c "/opt/scripts/start-connected-containers.sh" &
+fi
+
 echo "---Starting...---"
 term_handler() {
 	kill -SIGTERM "$killpid"
