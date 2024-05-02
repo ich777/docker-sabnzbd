@@ -5,7 +5,7 @@ LABEL org.opencontainers.image.source="https://github.com/ich777/docker-sabnzbd"
 
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev par2 netcat-traditional && \
-	pip3 install sabctools==8.1.0 cheetah3 cryptography feedparser configobj cherrypy portend chardet notify2 puremagic guessit PySocks --break-system-packages && \
+	pip3 install --break-system-packages apprise==1.7.6 sabctools==8.1.0 CT3==3.3.3.post1 cffi==1.16.0 pycparser==2.22 feedparser==6.0.11 configobj==5.0.8 cheroot==10.0.1 six==1.16.0 cherrypy==18.9.0 jaraco.functools==4.0.1 jaraco.collections==5.0.0 jaraco.text==3.8.1 jaraco.classes==3.4.0 jaraco.context==4.3.0 more-itertools==10.2.0 zc.lockfile==3.0.post1 python-dateutil==2.9.0.post0 tempora==5.5.1 pytz==2024.1 sgmllib3k==1.0.0 portend==3.2.0 chardet==5.2.0 PySocks==1.7.1 puremagic==1.22 guessit==3.8.0 babelfish==0.6.0 rebulk==3.2.0 && \
 	apt-get -y remove python3-pip python3-wheel rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev && \
 	apt-get -y autoremove && \
 	rm -rf /var/lib/apt/lists/*
