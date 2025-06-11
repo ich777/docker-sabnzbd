@@ -28,10 +28,10 @@ RUN LAT_V_UNRAR="$(wget -qO- https://api.github.com/repos/ich777/unrar/releases/
 
 RUN LAT_V_PAR2TURBO="$(wget -qO- https://api.github.com/repos/animetosho/par2cmdline-turbo/releases/latest | grep tag_name | cut -d '"' -f4)" && \
 	cd /tmp && \
-	wget -O par2turbo.xz "https://github.com/animetosho/par2cmdline-turbo/releases/download/${LAT_V_PAR2TURBO}/par2cmdline-turbo-${LAT_V_PAR2TURBO#v}-linux-amd64.xz" && \
-	xz --decompress par2turbo.xz  && \
-	chmod +x /tmp/par2turbo && \
-	mv /tmp/par2turbo /usr/bin/par2turbo && \
+	wget -O par2turbo.zip "https://github.com/animetosho/par2cmdline-turbo/releases/download/${LAT_V_PAR2TURBO}/par2cmdline-turbo-${LAT_V_PAR2TURBO#v}-linux-amd64.zip" && \
+	unzip par2turbo.zip  && \
+	chmod +x /tmp/par2 && \
+	mv /tmp/par2 /usr/bin/par2turbo && \
 	ln -s /usr/bin/par2turbo /usr/bin/par2
 
 ENV DATA_DIR="/sabnzbd"
