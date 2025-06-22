@@ -23,6 +23,7 @@ echo "---Taking ownership of data...---"
 chown -R root:${GID} /opt/scripts
 chmod -R 750 /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
+chown ${UID}:${GID} /mnt
 
 if [ ! -z "${CONNECTED_CONTAINERS}" ]; then
   su ${USER} -c "/opt/scripts/start-connected-containers.sh" &
