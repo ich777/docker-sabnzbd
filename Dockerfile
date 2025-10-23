@@ -6,13 +6,11 @@ LABEL org.opencontainers.image.source="https://github.com/ich777/docker-sabnzbd"
 RUN apt-get update && \
 	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev netcat-traditional xz-utils
 
-RUN apt-get -y remove python3-more-itertools
-
 RUN	LAT_SAB_V="$(wget -qO- https://api.github.com/repos/sabnzbd/sabnzbd/releases/latest | grep tag_name | cut -d '"' -f4)" && \
 	cd /tmp && mkdir -p /tmp/sabnzbd && \
 	wget -O sabnzbd.tar.gz "https://github.com/sabnzbd/sabnzbd/releases/download/$LAT_SAB_V/SABnzbd-$LAT_SAB_V-src.tar.gz" && \
 	tar -C /tmp/sabnzbd --strip-components=1 -xvf /tmp/sabnzbd.tar.gz && \
-	pip3 install --force-reinstall --break-system-packages -r /tmp/sabnzbd/requirements.txt && \
+	pip3 install --force-reinstall --break-system-packages --ignore-installed  -r /tmp/sabnzbd/requirements.txt && \
 	rm -rf /tmp/sabnzbd.tar.gz /tmp/sabnzbd
 
 RUN	apt-get -y remove python3-pip python3-wheel rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev && \
