@@ -25,7 +25,7 @@ chmod -R 750 /opt/scripts
 chown -R ${UID}:${GID} ${DATA_DIR}
 chown ${UID}:${GID} /mnt
 if [ -d /data ]; then
-  chown ${UID}:${GID} /mnt
+  chown ${UID}:${GID} /data
 fi
 
 if [ ! -z "${CONNECTED_CONTAINERS}" ]; then
