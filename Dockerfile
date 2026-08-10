@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.authors="admin@minenet.at"
 LABEL org.opencontainers.image.source="https://github.com/ich777/docker-sabnzbd"
 
 RUN apt-get update && \
-	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev netcat-traditional xz-utils
+	apt-get -y install --no-install-recommends python3 python3-pip python3-setuptools python3-wheel p7zip-full unzip libtbb-dev rustc cargo python3-dev libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev netcat-traditional xz-utils hachoir
 
 RUN	LAT_SAB_V="$(wget -qO- https://api.github.com/repos/sabnzbd/sabnzbd/releases/latest | grep tag_name | cut -d '"' -f4)" && \
 	cd /tmp && mkdir -p /tmp/sabnzbd && \
